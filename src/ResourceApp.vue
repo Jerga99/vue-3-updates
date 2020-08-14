@@ -6,6 +6,15 @@
         <span class="text-muted">{{title}}</span>
         <span class="badge badge-secondary badge-pill">{{resourceCount}}</span>
       </h4>
+      <div class="input-group mb-2">
+        <input
+          @keyup="handleSearch"
+          type="text"
+          class="form-control"
+          placeholder="Some title" />
+        <div class="input-group-append">
+        </div>
+      </div>
       <resource-list
         :resources="resources"
         :activeId="activeResource?._id"
@@ -20,7 +29,6 @@
 </template>
 
 <script>
-
 import ResourceDetail from '@/components/ResourceDetail'
 import ResourceList from '@/components/ResourceList'
 import useResources from '@/composition/useResources';
@@ -32,8 +40,7 @@ export default {
   data() {
     return {
       title: 'Your resources',
-      selectedResource: null,
-      resources: []
+      selectedResource: null
     }
   },
   setup() {
@@ -49,6 +56,9 @@ export default {
   methods: {
     selectResource(resource) {
       this.selectedResource = {...resource}
+    },
+    handleSearch(e) {
+      this.setSearchQuery(e.target.value)
     }
   }
 }
