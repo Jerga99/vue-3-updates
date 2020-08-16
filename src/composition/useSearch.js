@@ -4,8 +4,8 @@ import { ref, computed } from 'vue'
 export default function useSearchResource(resources) {
   const searchQuery = ref('')
 
-  const setSearchQuery = (value) => {
-    searchQuery.value = value
+  const setSearchQuery = searched => {
+    searchQuery.value = searched
   }
 
   const searchedResources = computed(() => {

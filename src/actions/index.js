@@ -7,3 +7,9 @@ export function fetchResources() {
     setTimeout(() => res(resources), 500);
   })
 }
+
+export function fetchUser() {
+  return new Promise(res => {
+    setTimeout(() => res({name: 'Filip'}), 1000);
+  })
+}
