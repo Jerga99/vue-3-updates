@@ -34,6 +34,9 @@
           Delete
         </button>
       </h4>
+      <teleport to="#teleportContent">
+        <div class="teleport-body">I am Teleported!</div>
+      </teleport>
       <resource-detail :resource="activeResource" />
     </div>
   </div>
@@ -75,3 +78,10 @@ export default {
   }
 }
 </script>
+<style>
+  .teleport-body {
+    padding: 20px;
+    background-color: #e6e6e6;
+    margin: 10px;
+  }
+</style>

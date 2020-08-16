@@ -1,6 +1,7 @@
 <template>
   <Header/>
   <div class="container">
+    <div id="teleportContent"></div>
     <router-view />
   </div>
 </template>
