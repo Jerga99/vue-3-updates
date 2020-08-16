@@ -6,6 +6,11 @@
         <span class="text-muted">{{title}}</span>
         <span class="badge badge-secondary badge-pill">{{resourceCount}}</span>
       </h4>
+      <button
+        @click="addResource();selectedResource=null"
+        class="btn btn-sm btn-primary mb-2">
+        Add Resource
+      </button>
       <div class="input-group mb-2">
         <input
           @keyup="handleSearch"
@@ -22,7 +27,13 @@
       />
     </div>
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Resource {{activeResource?._id}}</h4>
+      <h4 class="mb-3">Resource {{activeResource?._id}}
+        <button
+          @click="removeResource(activeResource);selectedResource=null"
+          class="btn btn-sm btn-danger mb-2">
+          Delete
+        </button>
+      </h4>
       <resource-detail :resource="activeResource" />
     </div>
   </div>

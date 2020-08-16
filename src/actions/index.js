@@ -2,14 +2,22 @@
 
 import resources from './data.json';
 
-export function fetchResources() {
-  return new Promise(res => {
-    setTimeout(() => res(resources), 500);
+const delay = (delay) => {
+  return new Promise((res) => {
+    setTimeout(res, delay)
   })
 }
 
+const apiCall = async (operation, time = 1000) => {
+  await delay(time)
+  const results = await operation()
+  return results
+}
+
+export function fetchResources() {
+  return apiCall(() => resources)
+}
+
 export function fetchUser() {
-  return new Promise(res => {
-    setTimeout(() => res({name: 'Filip'}), 1000);
-  })
+  return apiCall(() => ({name: 'Filip'}), 2000)
 }
