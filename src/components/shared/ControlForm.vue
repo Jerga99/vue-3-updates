@@ -4,7 +4,7 @@
       <label htmlFor="fontSize">Font size</label>
       <input
         :value="fontSize"
-        @input="handleFontSize($event.target.value)"
+        @input="handleChange('fontSize', $event.target.value)"
         type="text"
         class="form-control"
         id="fontSize"
@@ -14,7 +14,7 @@
       <label htmlFor="theme">Theme</label>
       <select
         :value="theme"
-        @change="handleTheme($event.target.value)"
+        @change="handleChange('theme', $event.target.value)"
         class="form-control"
         name="type"
         id="theme">
@@ -34,12 +34,15 @@
     },
     emits: ['update:theme', 'update:fontSize'],
     methods: {
-      handleTheme(theme) {
-        this.$emit('update:theme', theme)
-      },
-      handleFontSize(fontSize) {
-        this.$emit('update:fontSize', fontSize)
+      handleChange(prop, value) {
+        this.$emit(`update:${prop}`, value)
       }
+      // handleTheme(theme) {
+      //   this.$emit('update:theme, theme')
+      // },
+      // handleFontSize(fontSize) {
+      //   this.$emit('update:fontSize', fontSize)
+      // }
     }
   }
 </script>

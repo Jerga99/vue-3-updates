@@ -6,6 +6,7 @@
   </button>
   <modal
     @on-close="isOpen = false"
+    @on-submit="saveControl"
     :isOpen="isOpen">
     <div>
       <ControlForm
@@ -38,6 +39,13 @@
         isOpen: false,
         theme: '',
         fontSize: ''
+      }
+    },
+    methods: {
+      saveControl() {
+        localStorage
+          .setItem('resorce-app', JSON.stringify({theme: this.theme, fontSize: this.fontSize}))
+        this.isOpen = false
       }
     }
   }
