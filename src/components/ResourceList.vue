@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-group mb-3 resource-list">
+  <ul :class="`list-group mb-3 resource-list ${theme()}`">
     <li
       v-for="resource in resources"
       :key="resource._id"
@@ -23,6 +23,7 @@ export default {
     activeId: String
   },
   emits: ['on-item-click'],
+  inject: ['theme'],
   computed: {
     activeClass() {
       return resource => this.activeId === resource._id ? 'is-active' : 'not-active'
@@ -49,5 +50,10 @@ export default {
         background-color: #f3f3f3;
       }
     }
+  }
+
+
+  .resource-list.dark {
+    color: black;
   }
 </style>

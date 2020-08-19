@@ -1,5 +1,5 @@
 <template>
-  <div v-if="resource?._id" class="card">
+  <div v-if="resource?._id" :class="`card ${theme()}`">
     <div class="card-header">
       {{resource.title}}
     </div>
@@ -29,6 +29,13 @@ export default {
       validator: prop => typeof prop === 'object' || prop === null,
       required: true
     }
-  }
+  },
+  inject: ['theme']
 }
 </script>
+
+<style scoped>
+  .card.dark {
+    color: black;
+  }
+</style>

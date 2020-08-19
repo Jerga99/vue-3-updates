@@ -41,10 +41,13 @@
         fontSize: ''
       }
     },
+    inject: ['setSettings'],
     methods: {
       saveControl() {
+        const settings = {theme: this.theme, fontSize: this.fontSize}
         localStorage
-          .setItem('resorce-app', JSON.stringify({theme: this.theme, fontSize: this.fontSize}))
+          .setItem('resorce-app', JSON.stringify(settings))
+        this.setSettings(settings);
         this.isOpen = false
       }
     }
