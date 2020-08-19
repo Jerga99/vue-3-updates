@@ -6,19 +6,38 @@
   </button>
   <modal
     @on-close="isOpen = false"
-    :isOpen="isOpen"/>
+    :isOpen="isOpen">
+    <div>
+      <ControlForm
+        v-model:theme="theme"
+        v-model:fontSize="fontSize"/>
+    </div>
+  </modal>
 </template>
 
 
+
+
 <script>
+
+  // <ChildComponent
+  //   :prop1="prop1"
+  //   @update:prop1="prop1 = $event"
+  //   :prop2="prop2"
+  //   @update:prop2="prop2 = $event"
+  // />
+
   import Modal from '@/components/shared/Modal'
+  import ControlForm from '@/components/shared/ControlForm'
   export default {
     components: {
-      Modal
+      Modal, ControlForm
     },
     data() {
       return {
-        isOpen: false
+        isOpen: false,
+        theme: '',
+        fontSize: ''
       }
     }
   }
