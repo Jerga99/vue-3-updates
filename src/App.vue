@@ -1,7 +1,6 @@
 <template>
   <Header/>
   <div class="container">
-    <div id="teleportContent"></div>
     <router-view />
   </div>
 </template>
@@ -14,4 +13,8 @@ export default {
 </script>
 <style>
   @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+  body {
+    position: relative;
+  }
 </style>
